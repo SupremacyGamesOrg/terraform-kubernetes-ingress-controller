@@ -256,7 +256,7 @@ resource "kubernetes_service" "ingres-controller" {
         annotations = {
 
             "service.beta.kubernetes.io/aws-load-balancer-type"     = "nlb"
-            "service.beta.kubernetes.io/aws-load-balancer-internal" = var.internal ? "true" : null
+            "service.beta.kubernetes.io/aws-load-balancer-internal" = var.internal == true || var.internal == "true" ? "true" : null
 
         }
 
