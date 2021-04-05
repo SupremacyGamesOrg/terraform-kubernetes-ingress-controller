@@ -22,6 +22,7 @@ resource "kubernetes_config_map" "nginx-configuration" {
         proxy-body-size       = "1024m"
         server-tokens         = false
         use-gzip              = true
+        proxy-real-ip-cidr    = var.vpc_cidr
 
     }
 

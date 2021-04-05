@@ -39,3 +39,10 @@ variable "internal" {
     default = true
 
 }
+
+variable "vpc_cidr" {
+
+    type = string
+    description = "vpc cidr needed to determine source ip on requests"
+
+}
