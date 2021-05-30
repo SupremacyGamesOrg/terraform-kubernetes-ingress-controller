@@ -46,3 +46,11 @@ variable "vpc_cidr" {
     description = "vpc cidr needed to determine source ip on requests"
 
 }
+
+variable "loadbalancer_ip" {
+
+    type = string
+    description = "static ip for GKE"
+    default = null
+
+}

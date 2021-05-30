@@ -241,6 +241,7 @@ resource "kubernetes_service" "ingres-controller" {
 
         load_balancer_source_ranges = var.whitelist_ip_ranges
 
+        loadBalancerIP = var.loadbalancer_ip
     }
 
 }
