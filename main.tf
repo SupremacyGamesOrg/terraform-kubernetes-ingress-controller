@@ -189,7 +189,7 @@ resource "kubernetes_daemonset" "ingress-controller" {
 
 }
 
-resource "kubernetes_service" "ingres-controller" {
+resource "kubernetes_service" "ingress-controller" {
 
     metadata {
 
@@ -240,8 +240,8 @@ resource "kubernetes_service" "ingres-controller" {
         }
 
         load_balancer_source_ranges = var.whitelist_ip_ranges
+        load_balancer_ip            = var.loadbalancer_ip
 
-        loadBalancerIP = var.loadbalancer_ip
     }
 
 }
@@ -369,14 +369,14 @@ resource "kubernetes_deployment" "default-http-backend" {
 
                     resources {
 
-                        requests {
+                        requests = {
 
                             cpu    = "10m"
                             memory = "20Mi"
 
                         }
 
-                        limits {
+                        limits = {
 
                             cpu    = "10m"
                             memory = "20Mi"
