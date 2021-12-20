@@ -1,16 +1,26 @@
 # Kubernetes ingress controller via Terraform
 
+See https://registry.terraform.io/modules/mateothegreat/ingress-controller/kubernetes/latest.
+
+## Example
+
 ```hcl
+provider "kubernetes" {
+
+    //
+    // Add connection info here
+    //
+
+}
+
 module "ingress-controller" {
 
     source  = "mateothegreat/ingress-controller/kubernetes"
-    version = "0.0.1"
+    version = "<change me>"
 
-    name         = "ingress-controller"
-    namespace    = "default"
-    aws_profile  = "myawsprofilename"
-    aws_region   = "us-east-1"
-    cluster_name = "cluster-1"
+    name      = "my-ngress-controller"
+    namespace = "default"
+    internal  = true
     
 }
 ```

@@ -1,6 +1,6 @@
 variable "image" {
 
-    type = string
+    type    = string
     default = "quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0"
 
 }
@@ -28,29 +28,30 @@ variable "whitelist_ip_ranges" {
 
 variable "node_selector" {
 
-    type = map
+    type    = map
     default = null
 
 }
 
 variable "internal" {
 
-    type = bool
+    type    = bool
     default = true
 
 }
 
 variable "vpc_cidr" {
 
-    type = string
+    type        = string
     description = "vpc cidr needed to determine source ip on requests"
+    default     = null
 
 }
 
 variable "loadbalancer_ip" {
 
-    type = string
+    type        = string
     description = "static ip for GKE"
-    default = null
+    default     = null
 
 }

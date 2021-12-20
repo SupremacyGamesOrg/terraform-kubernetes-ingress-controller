@@ -2,12 +2,12 @@ resource "kubernetes_config_map" "nginx-configuration" {
 
     metadata {
 
-        name      = "nginx-configuration"
+        name      = "${ var.name }-configuration"
         namespace = var.namespace
 
         labels = {
 
-            app = "ingress-controller"
+            app = var.name
 
         }
 

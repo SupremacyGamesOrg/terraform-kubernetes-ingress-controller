@@ -1,11 +1,16 @@
+provider "kubernetes" {
+
+    //
+    // Add connection info here
+    //
+
+}
+
 module "test" {
 
     source = "../"
 
-    name         = "ingress-controller"
-    namespace    = "default"
-    aws_profile  = "myawsprofilename"
-    aws_region   = "us-east-1"
-    cluster_name = "cluster-1"
+    name      = "my-ngress-controller"
+    namespace = "default"
 
 }
