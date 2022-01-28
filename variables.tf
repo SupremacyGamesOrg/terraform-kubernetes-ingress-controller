@@ -28,7 +28,7 @@ variable "whitelist_ip_ranges" {
 
 variable "node_selector" {
 
-    type    = map
+    type    = map(string)
     default = null
 
 }
@@ -53,5 +53,109 @@ variable "loadbalancer_ip" {
     type        = string
     description = "static ip for GKE"
     default     = null
+
+}
+
+variable "http_port" {
+
+    type        = number
+    description = "port for http"
+    default     = 30080
+
+}
+
+variable "https_port" {
+
+    type        = number
+    description = "port for https"
+    default     = 30443
+
+}
+
+variable "default_server_port" {
+
+    type        = number
+    description = "port for http"
+    default     = null
+
+}
+
+variable "profiler_port" {
+
+    type        = number
+    description = "port for http"
+    default     = null
+
+}
+
+variable "healthz_port" {
+
+    type        = number
+    description = "port for http"
+    default     = null
+
+}
+
+variable "status_port" {
+
+    type        = number
+    description = "port for http"
+    default     = null
+
+}
+
+variable "stream_port" {
+
+    type        = number
+    description = "port for http"
+    default     = null
+
+}
+
+variable "service_http_port" {
+
+    type        = number
+    description = "port for http"
+    default     = null
+
+}
+
+variable "service_https_port" {
+
+    type        = number
+    description = "port for http"
+    default     = null
+
+}
+
+variable "node_http_port" {
+
+    type        = number
+    description = "port for http"
+    default     = null
+
+}
+
+variable "node_https_port" {
+
+    type        = number
+    description = "port for http"
+    default     = null
+
+}
+
+variable "ingress_class_name" {
+
+    type        = string
+    description = "ingress class name"
+    default     = null
+
+}
+
+variable "service_type" {
+
+    type        = string
+    description = "service type"
+    default     = "ClusterIP"
 
 }
