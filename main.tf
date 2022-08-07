@@ -90,7 +90,7 @@ resource "kubernetes_daemonset" "ingress-controller" {
                     image = "quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0"
                     #                    image = "k8s.gcr.io/ingress-nginx/controller:v1.1.1"
 
-                    args = [
+                    args = concat([
 
                         "/nginx-ingress-controller",
                         #                        "--default-backend-service=$(POD_NAMESPACE)/default-http-backend",
@@ -105,7 +105,7 @@ resource "kubernetes_daemonset" "ingress-controller" {
                         "--status-port=${ var.status_port }",
                         "--stream-port=${ var.stream_port }"
 
-                    ]
+                    ], var.additional_args)
 
                     readiness_probe {
 

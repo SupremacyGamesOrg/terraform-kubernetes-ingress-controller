@@ -60,7 +60,7 @@ variable "http_port" {
 
     type        = number
     description = "port for http"
-    default     = 30080
+    default     = 30001
 
 }
 
@@ -68,7 +68,7 @@ variable "https_port" {
 
     type        = number
     description = "port for https"
-    default     = 30443
+    default     = 30002
 
 }
 
@@ -76,7 +76,7 @@ variable "default_server_port" {
 
     type        = number
     description = "port for http"
-    default     = null
+    default     = 30003
 
 }
 
@@ -84,7 +84,7 @@ variable "profiler_port" {
 
     type        = number
     description = "port for http"
-    default     = null
+    default     = 30004
 
 }
 
@@ -92,7 +92,7 @@ variable "healthz_port" {
 
     type        = number
     description = "port for http"
-    default     = null
+    default     = 30005
 
 }
 
@@ -100,7 +100,7 @@ variable "status_port" {
 
     type        = number
     description = "port for http"
-    default     = null
+    default     = 30006
 
 }
 
@@ -108,7 +108,7 @@ variable "stream_port" {
 
     type        = number
     description = "port for http"
-    default     = null
+    default     = 30007
 
 }
 
@@ -116,7 +116,7 @@ variable "service_http_port" {
 
     type        = number
     description = "port for http"
-    default     = null
+    default     = 80
 
 }
 
@@ -124,7 +124,7 @@ variable "service_https_port" {
 
     type        = number
     description = "port for http"
-    default     = null
+    default     = 443
 
 }
 
@@ -132,7 +132,7 @@ variable "node_http_port" {
 
     type        = number
     description = "port for http"
-    default     = null
+    default     = 80
 
 }
 
@@ -140,7 +140,7 @@ variable "node_https_port" {
 
     type        = number
     description = "port for http"
-    default     = null
+    default     = 443
 
 }
 
@@ -148,7 +148,7 @@ variable "ingress_class_name" {
 
     type        = string
     description = "ingress class name"
-    default     = null
+    default     = "nginx"
 
 }
 
@@ -157,5 +157,13 @@ variable "service_type" {
     type        = string
     description = "service type"
     default     = "ClusterIP"
+
+}
+
+variable "additional_args" {
+
+    type        = list(string)
+    description = "additional args for container"
+    default     = null
 
 }
