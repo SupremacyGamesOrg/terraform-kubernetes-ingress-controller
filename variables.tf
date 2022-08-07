@@ -132,7 +132,7 @@ variable "node_http_port" {
 
     type        = number
     description = "port for http"
-    default     = 80
+    default     = 30080
 
 }
 
@@ -140,7 +140,7 @@ variable "node_https_port" {
 
     type        = number
     description = "port for http"
-    default     = 443
+    default     = 30443
 
 }
 
