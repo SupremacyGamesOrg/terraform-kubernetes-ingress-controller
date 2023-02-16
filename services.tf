@@ -14,7 +14,7 @@ resource "kubernetes_service" "ingress-controller" {
         annotations = {
 
             "service.beta.kubernetes.io/aws-load-balancer-type"     = "nlb"
-            "service.beta.kubernetes.io/aws-load-balancer-internal" = var.internal == true || var.internal == "true" ? "true" : null
+            "service.beta.kubernetes.io/aws-load-balancer-scheme" = var.internal == true || var.internal == "true" ? "internal" : "internet-facing"
 
         }
 
