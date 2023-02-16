@@ -148,7 +148,7 @@ variable "ingress_class_name" {
 
     type        = string
     description = "ingress class name"
-    default     = "nginx"
+    default     = null
 
 }
 
