@@ -164,6 +164,6 @@ variable "additional_args" {
 
     type        = list(string)
     description = "additional args for container"
-    default     = null
+    default     = []
 
 }
