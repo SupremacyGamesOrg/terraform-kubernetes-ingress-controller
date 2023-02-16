@@ -87,16 +87,16 @@ resource "kubernetes_daemonset" "ingress-controller" {
                 container {
 
                     name  = var.name
-                    image = "quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0"
-                    #                    image = "k8s.gcr.io/ingress-nginx/controller:v1.1.1"
+                    #image = "quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0"
+                    image = "k8s.gcr.io/ingress-nginx/controller:v1.1.1"
 
                     args = concat([
 
                         "/nginx-ingress-controller",
-                        #                        "--default-backend-service=$(POD_NAMESPACE)/default-http-backend",
-                        "--configmap=$(POD_NAMESPACE)/nginx-configuration",
+                        "--default-backend-service=${ var.namespace }/${ var.name }-default-http-backend",
+                        "--configmap=${ var.namespace }/${ var.name }-configuration",
                         "--annotations-prefix=nginx.ingress.kubernetes.io",
-                        "--ingress-class=${ var.ingress_class_name }",
+                        var.ingress_class_name == null ? "--watch-ingress-without-class" : "--ingress-class=${ var.ingress_class_name }",
                         "--http-port=${ var.http_port }",
                         "--https-port=${ var.https_port }",
                         "--default-server-port=${ var.default_server_port }",
