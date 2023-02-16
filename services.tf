@@ -90,6 +90,10 @@ resource "kubernetes_service" "ingress-controller-metrics" {
 
 }
 
+output "lb_endpoint" {
+    value = kubernetes_service.ingress-controller.status.0.load_balancer.0.ingress.0.hostname
+}
+
 resource "kubernetes_service" "default-http-backend" {
 
     metadata {
