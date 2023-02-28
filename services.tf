@@ -91,6 +91,7 @@ resource "kubernetes_service" "ingress-controller-metrics" {
 }
 
 output "lb_endpoint" {
+    description = "The load balancer publicly accessible endpoint address"
     value = kubernetes_service.ingress-controller.status.0.load_balancer.0.ingress.0.hostname
 }
 
