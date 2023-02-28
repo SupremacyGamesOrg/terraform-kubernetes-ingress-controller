@@ -81,7 +81,7 @@ resource "kubernetes_daemonset" "ingress-controller" {
                 service_account_name             = "${ var.name }-serviceaccount"
                 automount_service_account_token  = true
                 termination_grace_period_seconds = 1
-                host_network                     = true
+                host_network                     = false
                 node_selector                    = var.node_selector
 
                 container {
@@ -139,15 +139,15 @@ resource "kubernetes_daemonset" "ingress-controller" {
 
                     port {
 
-                        container_port = var.node_http_port
-                        host_port      = var.node_http_port
+                        container_port = var.http_port
+                        host_port      = var.http_port
 
                     }
 
                     port {
 
-                        container_port = var.node_https_port
-                        host_port      = var.node_https_port
+                        container_port = var.https_port
+                        host_port      = var.https_port
 
                     }
 
